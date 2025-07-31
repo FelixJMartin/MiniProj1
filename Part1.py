@@ -2,9 +2,10 @@
 
 Deterministic) Reproduce the result in Fig 2a, and Fig 2b in the article by solving
 the ODE model given in page 1 (Eq. [1]) to see how both proteins A (activator) and R (repressor)
-vary over 400 hours. 
-The model parameters and initial values to be used
+vary over 400 hours. The model parameters and initial values to be used
 are given in the caption of Fig. 1.
+
+
 For this task, if you go for option 1, you will use the built-in function solve_ivp from
 the scipy.integrate library. In the provided code, you only need to introduce new
 parameter values, initial conditions, and adjust the timespan and the ODEfun function
@@ -47,6 +48,8 @@ def molecules(t, y):
 teval = np.linspace(0, FinalTime,1000)    
 sol = solve_ivp(molecules, [0,FinalTime], Initial, method = 'BDF', t_eval = teval)
 
+
+# deterministic
 plt.figure(figsize = (8, 4))
 plt.plot(sol.t,sol.y[6],linestyle = 'solid', color='blue', label = 'A')
 plt.xlabel('Time'); 
@@ -65,6 +68,7 @@ plt.show()
 
 
 
+# Stochastic process. 
 
 # def Predator_Prey(t, y):
 #     F,R = y
