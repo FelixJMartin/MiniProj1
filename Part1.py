@@ -5,14 +5,6 @@ the ODE model given in page 1 (Eq. [1]) to see how both proteins A (activator) a
 vary over 400 hours. The model parameters and initial values to be used
 are given in the caption of Fig. 1.
 
-
-For this task, if you go for option 1, you will use the built-in function solve_ivp from
-the scipy.integrate library. In the provided code, you only need to introduce new
-parameter values, initial conditions, and adjust the timespan and the ODEfun function
-according to the right-hand sides in Eq. [1] of the article. Subsequently, plot only two
-variables A and R. The ODE here is stiff, so be sure to use a solver appropriate for
-stiff problems. For example, you can use the BDF method in this case
-
 """
 
 import matplotlib.pyplot as plt
@@ -65,25 +57,22 @@ plt.legend(loc='upper right')
 plt.show()
 
 
+Stochastic process. 
 
+def Predator_Prey(t, y):
+    F,R = y
+    yprime = np.zeros(2);
+    yprime[0] = beta*F*R - gamma*F
+    yprime[1] = alpha*R - beta*F*R
+    return yprime
 
+teval = np.linspace(0, FinalTime,1000)      # fine evaluation time samples
+sol = solve_ivp(Predator_Prey, [0,FinalTime], Initial, method = 'BDF', t_eval = teval)
 
-# Stochastic process. 
-
-# def Predator_Prey(t, y):
-#     F,R = y
-#     yprime = np.zeros(2);
-#     yprime[0] = beta*F*R - gamma*F
-#     yprime[1] = alpha*R - beta*F*R
-#     return yprime
-
-# teval = np.linspace(0, FinalTime,1000)      # fine evaluation time samples
-# sol = solve_ivp(Predator_Prey, [0,FinalTime], Initial, method = 'BDF', t_eval = teval)
-
-# plt.figure(figsize = (6, 3))
-# plt.plot(sol.t,sol.y[0],linestyle = 'solid', color='blue', label = 'Rabbits')
-# plt.plot(sol.t,sol.y[1],linestyle = 'solid', color='red', label = 'Foxes')
-# plt.xlabel('Time'); plt.ylabel('Number of animals')
-# plt.title('Deterministic solution using BDF')
-# plt.legend(loc='upper right')
-# plt.show()
+plt.figure(figsize = (6, 3))
+plt.plot(sol.t,sol.y[0],linestyle = 'solid', color='blue', label = 'Rabbits')
+plt.plot(sol.t,sol.y[1],linestyle = 'solid', color='red', label = 'Foxes')
+plt.xlabel('Time'); plt.ylabel('Number of animals')
+plt.title('Deterministic solution using BDF')
+plt.legend(loc='upper right')
+plt.show()
