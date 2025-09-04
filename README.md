@@ -1,4 +1,4 @@
- Modeling the Circadian Clock: Deterministic and Stochastic Simulation
+# Modeling the Circadian Clock: Deterministic and Stochastic Simulation
 
 This project reproduces key results from the influential article  
 **"Mechanisms of noise-resistance in genetic oscillators"**  
