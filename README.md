@@ -1,5 +1,6 @@
 # Modeling the Circadian Clock: Deterministic and Stochastic Simulation
 
+Link to article: https://pubmed.ncbi.nlm.nih.gov/11972055/
 
 ### Project overview: 
 
