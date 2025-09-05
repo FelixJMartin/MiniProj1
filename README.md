@@ -32,6 +32,20 @@ Plot the concentrations of the two proteins: A (activator) and R (repressor).
 
 Goal: Show how A and R vary over time in the deterministic model.
 
+**Assignment B - Stochastic Model**
+
+Task
+Reproduce Figures 2c and 2d from Vilar et al. (2002) by simulating the circadian clock with a stochastic model.
+
+Method
+Model the system as a discrete Markov process with 16 reactions (given in the article).
+Use the Stochastic Simulation Algorithm (SSA) to track molecule counts over 400 hours.
+Apply the same parameter values as in Assignment A (deterministic case).
+
+Goals
+Plot the dynamics of A (activator) and R (repressor) over time.
+Run the simulation multiple times to observe variability caused by randomness.
+Compare results to the deterministic ODE model (Assignment A).
 
 
 
