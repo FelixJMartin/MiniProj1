@@ -1,72 +1,40 @@
 # Modeling the Circadian Clock: Deterministic and Stochastic Simulation
 
-This project reproduces key results from the influential article  
-**"Mechanisms of noise-resistance in genetic oscillators"**  
-by José M. G. Vilar et al. (PNAS, 2002), using both deterministic and stochastic mathematical models.
 
-🧬 Project Overview
+### Project overview: 
 
-Circadian clocks are molecular mechanisms used by organisms to synchronize biological processes with daily environmental cycles. In this mini-project, we model a simplified biological system involving two proteins — an **activator** and a **repressor** — and investigate their dynamic interactions over time using both:
+This project explores reproducibility in scientific computing by replicating results from a well-known article in systems biology. The focus is on modeling a simplified circadian clock using both:
 
-- **Ordinary Differential Equations (ODEs)** — deterministic model  
-- **Stochastic Simulation Algorithm (SSA)** — stochastic model
+Deterministic ODEs
+Stochastic simulations (SSA)
 
-The aim is to explore how noise affects biological rhythms, and compare the behavior of deterministic and stochastic formulations of the same system.
+The aim is not to fully master the biological details, but to reproduce key figures and gain insight into how noise influences biological rhythms.
 
-⚙️ Methods
+Circadian clocks help organisms adapt to daily cycles such as light and darkness. They work through feedback loops where:
 
-### 1. Deterministic Model (ODE)
-- Implemented the system of stiff ODEs describing protein interactions over 400 hours.
-- Solved using `scipy.integrate.solve_ivp` with the **BDF method** (for stiff problems).
-- Reproduced **Figure 2a & 2b** from the article, showing concentration curves of proteins A and R.
+An activator protein (A) promotes the expression of a repressor.
+The repressor protein (R) then inhibits the activator.
+The cycle restarts when the repressor degrades, allowing the activator to be expressed again.
 
-### 2. Stochastic Model (SSA)
-- Modeled 16 reactions using either:
-  - A custom SSA implementation, or
-  - The `Gillespy2` Python library in the **stochSS** environment.
-- Reproduced **Figure 2c & 2d** via repeated SSA runs to observe variability across trials.
+In this project, we study a simplified circadian clock model from Vilar et al. (2002) that includes two proteins (A and R) and their corresponding genes.
 
-### 3. Comparison & Analysis
-- Simulated and compared both models for long-term behavior.
-- Reproduced **Figure 5**, showing qualitative divergence due to stochastic noise.
-- Reflected on when stochastic modeling is more appropriate than deterministic.
 
-📊 Files
+**Assignment A – Deterministic Model**
 
-- `circadian_ode.py` – ODE implementation of the deterministic model
-- `circadian_ssa.py` – Stochastic implementation (SSA or Gillespy2)
-- `figures/` – Plots replicating results (e.g., Fig 2a–2d, Fig 5)
-- `report.pdf` – Final report with explanation, figures, and analysis
-- `README.md` – Project overview (this file)
+Task: Reproduce Figures 2a and 2b from Vilar et al. (2002).
 
-🔬 Biological Background
+Method:
+Solve the ODE system from Eq. [1] in the article (stiff system).
+Use scipy.integrate.solve_ivp with the BDF( (Backward Differentiation Formula) solver.
+Apply the parameters and initial values given in Fig. 1 (article).
+Simulate the system over 400 hours.
+Plot the concentrations of the two proteins: A (activator) and R (repressor).
 
-The model tracks:
-- Activator gene \( D_A \), Repressor gene \( D_R \)
-- Transcription, binding, and degradation of mRNA and proteins A and R
-- Feedback loops where A activates, and R represses gene expression
+Goal: Show how A and R vary over time in the deterministic model.
 
-Despite its biological complexity, the system is reduced to a manageable number of ODEs and reactions.
 
-📦 Technologies Used
 
-- Python 3  
-- NumPy, SciPy (`solve_ivp`)  
-- Matplotlib for plotting  
-- Gillespy2 / StochSS (optional for SSA)
 
-📈 Results Summary
 
-- **Deterministic model**: Predictable oscillations in A and R with stable amplitude and frequency.
-- **Stochastic model**: Similar average behavior, but exhibits variability between runs due to molecular noise.
-- **Insight**: Noise-resistance mechanisms are crucial in biological systems; stochastic models are necessary for capturing cell-scale variability.
 
-📚 Source Article
 
-Vilar, J.M.G., Kueh, H.Y., Barkai, N., & Leibler, S. (2002).  
-*Mechanisms of noise-resistance in genetic oscillators*.  
-PNAS, 99(9), 5988–5992.  
-
----
-
-Feel free to explore, adapt, or cite this code for educational or research purposes.
