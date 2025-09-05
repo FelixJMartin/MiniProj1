@@ -48,6 +48,20 @@ Run the simulation multiple times to observe variability caused by randomness.
 Compare results to the deterministic ODE model (Assignment A).
 
 
+**Assignement C - Choice of method**
+
+Task
+Reproduce Figure 5 from Vilar et al. (2002), illustrating how random noise in the stochastic model can lead to qualitative differences compared to the deterministic model.
+
+Method
+Simulate both the deterministic ODE model and the stochastic SSA model.
+Use the same parameters as before.
+Compare the long-term dynamics of activator (A) and repressor (R).
+
+Goals
+Show how noise can alter system behavior compared to the smooth deterministic solution.
+Highlight the divergence between models over time
+
 
 
 
