@@ -24,6 +24,8 @@ In this project, we study a simplified circadian clock model from Vilar et al. (
 
 Task: Reproduce Figures 2a and 2b from Vilar et al. (2002).
 
+![Figure2](assets/img/fig2.png)
+
 Method:
 Solve the ODE system from Eq. [1] in the article (stiff system).
 Use scipy.integrate.solve_ivp with the BDF( (Backward Differentiation Formula) solver.
